@@ -41,16 +41,15 @@ function App() {
 <Alert alert={alert}/>
 <div className="container my-3">
   <Switch>
-  <Route exact path="/about">{/*always use exact as it is a good practice nd it allows u to access one componet only if it matches exactly*/ }
-    <About />
+   <Route exact path="/about">{/*always use exact as it is a good practice nd it allows u to access one componet only if it matches exactly*/ } 
+    <About mode={mode}/>
   </Route>
   <Route exact path="/">
-<Textform showAlert={showAlert} mode={mode}/>
+<Textform showAlert={showAlert} mode={mode} heading="enter the text to analyze"/>
   </Route>
 </Switch>
 
-{/*<Textform heading="enter the text to analyze"/>*/}
-{/*<About/>*/}
+{/* <About/> */}
 </div>
 </Router>
    </>
