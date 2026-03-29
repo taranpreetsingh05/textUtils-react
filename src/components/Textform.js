@@ -40,11 +40,11 @@ export default function Textform(props) {
 <div className="mb-3">
 <textarea style={{ backgroundColor: props.mode === 'light' ? 'white' : '#212529',color:props.mode === 'light' ? 'black' : 'white' }}   className="form-control" value={text} onChange={handleonChange}  id="mybox" rows="3"></textarea>
 </div>
-<button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleupperclick}>Convert to Upper case</button>
-<button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleloclick}>Convert to Lower case</button>
+<button className="btn btn-primary mx-1 my-1" onClick={handleupperclick}>Convert to Upper case</button>
+<button className="btn btn-primary mx-1 my-1" onClick={handleloclick}>Convert to Lower case</button>
 {/*<button className="btn btn-primary mx-2" onClick={handlecolorclick}>changes color</button>
 <button className="btn btn-primary mx-2" onClick={handlerecolorclick}>back to normal color</button>*/}
-<button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlespace}>handle spaces</button>
+<button className="btn btn-primary mx-1 my-1" onClick={handlespace}>handle spaces</button>
 
 
 
@@ -52,15 +52,12 @@ export default function Textform(props) {
 </div>
 <div className="container my-2">
   <h1>your text summary</h1>
-  <p>{text.split(" ").filter((element)=>{
+  <p>{text.split(/\s/).filter((element)=>{
    return element.length!==0;
   }).length}  words {text.length} chars</p>
-  <p>time taken to read = {0.008*text.split(" ").filter((element)=>{
-    return element.length!==0;
-   
-  }).length} mins</p>
+  <p>time taken to read = {0.008*text.split(" ").length} mins</p>
   <h2>preview</h2>
-  <p style={{ color: props.mode === 'light' ? 'black' : 'white' }}>{text.length>0?text:" Nothing to preview!"}</p>
+  <p style={{ color: props.mode === 'light' ? 'black' : 'white' }}>{text.length>0?text:"enter something in textbox above to preview"}</p>
 </div>
 </>
   )
